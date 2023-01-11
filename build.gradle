@@ -15,10 +15,9 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation 'org.springframework.boot:spring-boot-starter-amqp'
-    implementation 'org.springframework.boot:spring-boot-starter-reactor-netty'
+    implementation 'org.springframework.boot:spring-boot-starter-activemq'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+    // JmsTemplate 추가 용도
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 }
