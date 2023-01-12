@@ -3,21 +3,20 @@ package com.example.websocket.domain.enqueue.controller;
 import com.example.websocket.domain.enqueue.service.EnqueueService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
-@RestController
 @Slf4j
+@Component
 @RequiredArgsConstructor
-public class EnqueueController {
+public class EnqueueScheduler {
 
+    private static final long SECONDS = 1000L;
     private final EnqueueService enqueueService;
 
-    @PostMapping("/hello")
-    public ResponseEntity<Void> helloMessage() {
+    @Scheduled(fixedRate = SECONDS)
+    public void helloMessage() {
         enqueueService.hello();
         log.info("message Enqueue");
-        return ResponseEntity.noContent().build();
     }
 }
